@@ -15,6 +15,7 @@ const user = computed(() => usePage().props.auth.user);
                 <h1 class="font-bold text-lg" v-text="title"></h1>
                 <p class="text-sm ml-4">Welcome Back, {{ user.username }}!</p>
             </div>
+            <input class="w-24 border p-2">
             <Nav />
         </header>
     </section>
