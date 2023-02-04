@@ -8,7 +8,7 @@ const props = defineProps({ time: String });
     <Layout>
         <h1 class="text-3xl">Users</h1>
         <div class="mt-[1000px]">
-            <p>The current time is {{ props.time }}.</p>
+            <p>The current time is {{ time }}.</p>
             <Link href="/users" preserve-scroll class="text-blue-500 hover:underline">Refresh</Link>
         </div>
     </Layout>
