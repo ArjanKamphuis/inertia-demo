@@ -25,4 +25,5 @@ createInertiaApp({
             .use(plugin)
             .mount(el)
     },
+    title: (title) => `Laracasts Inertia Demo - ${title}`,
 });
