@@ -1,15 +1,14 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import { computed } from 'vue';
-const props = defineProps({ time: String });
+const props = defineProps({ users: Array });
 const title = computed(() => 'Users');
 </script>
 
 <template>
     <Head :title="title" />
     <h1 class="text-3xl" v-text="title"></h1>
-    <div class="mt-[1000px]">
-        <p>The current time is {{ time }}.</p>
-        <Link href="/users" preserve-scroll class="text-blue-500 hover:underline">Refresh</Link>
-    </div>
+    <ul v-if="users">
+        <li v-for="user in users" :key="user.id" v-text="user.name"></li>
+    </ul>
 </template>
