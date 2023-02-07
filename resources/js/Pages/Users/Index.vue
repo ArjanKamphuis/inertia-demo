@@ -1,19 +1,20 @@
 <script setup>
 import { Head, Link, router } from '@inertiajs/vue3';
 import { computed, ref, watch } from 'vue';
+import { debounce } from 'lodash';
 import Pagination from '@/Shared/Pagination.vue';
 
 const props = defineProps({ users: Object, filters: Object });
 const title = computed(() => 'Users');
 const search = ref(props.filters.search ??= '');
 
-watch(search, value => {
+watch(search, debounce(value => {
     const options = value !== '' ? { search: value } : {};
     router.get('/users', options, {
         preserveState: true,
         replace: true
     });
-});
+}, 300));
 </script>
 
 <template>

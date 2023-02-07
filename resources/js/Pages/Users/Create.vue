@@ -31,7 +31,7 @@ const form = useForm({
         </div>
         <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4"
             :disabled="form.processing"
-            :class="{ 'opacity-50 cursor-wait': form.processing, 'hover:bg-blue-500': !form.processing }"
+            :class="form.processing ? 'opacity-50 cursor-wait' : 'hover:bg-blue-500 cursor-default'"
         >Submit</button>
     </form>
 </template>

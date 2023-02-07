@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     public function index(): Response
     {

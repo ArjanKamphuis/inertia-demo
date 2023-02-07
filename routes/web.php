@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -18,6 +18,6 @@ use Inertia\Inertia;
 Route::get('/', fn() => Inertia::render('Home'));
 Route::get('/settings', fn() => Inertia::render('Settings'));
 
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/users/create', [UserController::class, 'create']);
-Route::post('/users', [UserController::class, 'store']);
+Route::get('/users', [UsersController::class, 'index']);
+Route::get('/users/create', [UsersController::class, 'create']);
+Route::post('/users', [UsersController::class, 'store']);
