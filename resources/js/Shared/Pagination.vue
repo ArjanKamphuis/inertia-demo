@@ -4,7 +4,7 @@ const props = defineProps({ links: Array });
 </script>
 
 <template>
-    <div>
+    <div v-if="links.length > 3">
         <Component
             :is="link.url ? Link : 'span'"
             v-for="link in links"
