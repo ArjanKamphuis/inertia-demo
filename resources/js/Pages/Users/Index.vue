@@ -8,14 +8,11 @@ const title = computed(() => 'Users');
 const search = ref(props.filters.search ??= '');
 
 watch(search, value => {
-    if (value !== '') {
-        router.get('/users', { search: value }, {
-            preserveState: true,
-            replace: true
-        });
-    } else {
-        router.get('/users', {}, { preserveState: true, replace: true });
-    }
+    const options = value !== '' ? { search: value } : {};
+    router.get('/users', options, {
+        preserveState: true,
+        replace: true
+    });
 });
 </script>
 
