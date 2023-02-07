@@ -22,9 +22,15 @@ class UsersController extends Controller
                 ->withQueryString()
                 ->through(fn(User $user) => [
                     'id' => $user->id,
-                    'name' => $user->name
+                    'name' => $user->name,
+                    'can' => [
+                        'edit' => auth()->user()->can('edit', $user)
+                    ]
                 ]),
-            'filters' => request()->only(['search'])
+            'filters' => request()->only(['search']),
+            'can' => [
+                'createUser' => auth()->user()->can('create', User::class)
+            ]
         ]);
     }
 
