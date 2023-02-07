@@ -19,7 +19,10 @@ watch(search, value => {
 <template>
     <Head :title="title" />
     <div class="flex justify-between mb-6">
-        <h1 class="text-3xl" v-text="title"></h1>
+        <div class="flex items-baseline">
+            <h1 class="text-3xl" v-text="title"></h1>
+            <Link href="/users/create" class="text-blue-500 hover:underline text-sm ml-3">New User</Link>
+        </div>
         <input v-model="search" placeholder="Search..." class="border px-2 rounded-lg">
     </div>
     <div v-if="users.data.length > 0">

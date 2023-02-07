@@ -2,6 +2,7 @@
 import { Head, router } from '@inertiajs/vue3';
 import { computed, reactive } from 'vue';
 
+const props = defineProps({ errors: Object });
 const title = computed(() => 'Create New User');
 const form = reactive({
     name: '',
@@ -21,14 +22,17 @@ const submit = () => {
         <div class="mb-6">
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">Name</label>
             <input v-model="form.name" class="border border-gray-400 p-2 w-full" name="name" id="name" required>
+            <div v-if="errors.name" v-text="errors.name" class="text-red-500 text-xs mt-1"></div>
         </div>
         <div class="mb-6">
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">Email</label>
             <input v-model="form.email" class="border border-gray-400 p-2 w-full" name="email" id="email" type="email" required>
+            <div v-if="errors.email" v-text="errors.email" class="text-red-500 text-xs mt-1"></div>
         </div>
         <div class="mb-6">
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">Password</label>
             <input v-model="form.password" class="border border-gray-400 p-2 w-full" name="password" id="password" type="password" required>
+            <div v-if="errors.password" v-text="errors.password" class="text-red-500 text-xs mt-1"></div>
         </div>
         <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">Submit</button>
     </form>

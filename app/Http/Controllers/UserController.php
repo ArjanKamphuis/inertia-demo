@@ -37,7 +37,7 @@ class UserController extends Controller
     {
         $attributes = request()->validate([
             'name' => ['required'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required']
         ]);
         User::create($attributes);
