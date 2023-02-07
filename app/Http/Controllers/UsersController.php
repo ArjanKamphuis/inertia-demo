@@ -35,12 +35,11 @@ class UsersController extends Controller
 
     public function store(): RedirectResponse
     {
-        $attributes = request()->validate([
+        User::create(request()->validate([
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required']
-        ]);
-        User::create($attributes);
+        ]));
         return redirect('/users');
     }
 }

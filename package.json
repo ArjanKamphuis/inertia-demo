@@ -13,6 +13,7 @@
         "lodash": "^4.17.19",
         "postcss": "^8.4.21",
         "tailwindcss": "^3.2.4",
+        "unplugin-vue-define-options": "^1.2.1",
         "vite": "^4.0.0",
         "vue": "^3.2.36"
     }
