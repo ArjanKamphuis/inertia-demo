@@ -15,5 +15,7 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/users', [UsersController::class, 'index']);
     Route::get('/users/create', [UsersController::class, 'create'])->can('create', User::class);
+    Route::get('/users/{user}/edit', [UsersController::class, 'edit']);
     Route::post('/users', [UsersController::class, 'store']);
+    Route::patch('/users/{user}', [UsersController::class, 'update']);
 });
