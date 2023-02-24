@@ -1,8 +1,9 @@
 <script setup>
 import { Head, Link, router } from '@inertiajs/vue3';
-import { computed, ref, watch } from 'vue';
+import { computed, defineAsyncComponent, ref, watch } from 'vue';
 import { debounce } from 'lodash';
-import Pagination from '@/Shared/Pagination.vue';
+
+const Pagination = defineAsyncComponent(() => import('@/Shared/Pagination.vue'));
 
 const props = defineProps({
     users: Object,
